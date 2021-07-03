@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="user_style.css">
 	<title>Ваш сайт</title>
 </head>
 <body>

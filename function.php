@@ -8,6 +8,8 @@ if (isset($_POST['add_sumbit'])) {
 	$links_href = $_POST['name_href'];
 	$links_class = $_POST['name_class'];
 	$links_id = $_POST['name_id'];
+	$links_select_menu = $_POST['name_value_select'];
+
 
 	if ($links_class === "") {
 		$links_class = "mk-class";
@@ -23,7 +25,7 @@ if (isset($_POST['add_sumbit'])) {
     echo "Ошибка: " . $conn->error;
 }
 
-
+	
 	$table = "INSERT INTO `$menu_name`(`name_links`, `href_links`, `class_links`, `id_links`) VALUES ('$links_name', '$links_href', '$links_class', '$links_id')";
 	if (mysqli_query($conn, $table)) { // проверяем все ли правильно добавилось
 
@@ -73,8 +75,16 @@ if (isset($_POST['add_sumbit'])) {
 			$read_fil_admin = $conn->query("SELECT * FROM `$fil_name_admin`");
 			
 			echo "<div class=box_div_create_menu>"; 
-			echo "<p class=text_mune_admin>$fil_name_admin</p>";
+			
+			echo "
+			<form action=config_file.php method=post id=form_delete>
+			<input type=hidden name=hidden_name_menu value=$fil_name_admin>
+			<p class=text_mune_admin>$fil_name_admin<input type=submit name=delet_mune class=delet_class_submit title=Удалить value= ></p>
 
+			</form>
+			";
+			
+			
 			foreach ($read_fil_admin as $key_admin) {
 				$id_ad = $key_admin["id"];
 				$name_ad = $key_admin["name_links"];
@@ -86,15 +96,19 @@ if (isset($_POST['add_sumbit'])) {
 			
 
 			echo "
-				<div class=box_admin_links style=height:30px;>
-					<p class=name_te_ad_links>$name_ad</p>
+				<div class=box_admin_links style=height:30px;>					
+				<p class=name_te_ad_links>$name_ad</p>
 					<form action=config_file.php method=post id=form_$fil_name_admin>
 						<input type=hidden name=name_ad_hidden_id value=$id_ad>
 						<input type=hidden name=name_ad_hidden_menu value=$fil_name_admin>
-						<input type=text name=name_ad_links value=Имя:$name_ad class=inp_ad>
-						<input type=text name=name_ad_href value= Путь:$namehref_ad class=inp_ad>
-						<input type=text name=name_ad_class value= class:$classn_ad class=inp_ad>
-						<input type=text name=name_ad_id value=id:$id_links_ad class=inp_ad>
+						<p class=text_info>Имя сылки</p>
+						<input type=text name=name_ad_links value=$name_ad class=inp_ad>
+						<p class=text_info>Путь сылки</p>
+						<input type=text name=name_ad_href value=$namehref_ad class=inp_ad>
+						<p class=text_info>class</p>
+						<input type=text name=name_ad_class value=$classn_ad class=inp_ad>
+						<p class=text_info>id</p>
+						<input type=text name=name_ad_id value=$id_links_ad class=inp_ad>
 						<input type=submit name=sub_ad_save value=Сохранить class=inp_ad_submit>
 
 					</form>
