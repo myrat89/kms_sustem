@@ -1,17 +1,16 @@
-	/*@font-face {
-font-family: "montserrat"; 
-src: url("/fonts/"); 
-src: url("/fonts/") format("embedded-opentype"),
-url("/fonts/") format("woff"), 
-url("/fonts/") format("truetype"); 
-font-style: normal; 
-font-weight: normal; 
-}	*/
-
 
 		body{
 			margin: 0;
 
+		}
+		.logo_svg_cms{
+			width: 60px;
+			height: 60px;
+			display: inline-block;
+			position: absolute;
+			background-image: url(/images/cms-system.svg);
+			background-size: 100% 100%;
+			left: 18px; 
 		}
 		.heder_box_info{
 			width: 100%;
@@ -26,7 +25,6 @@ font-weight: normal;
 			padding: 7px 15px;
 			top: 1px;
 			transition: all 0.7s;
-
 		}
 		.href_User_proect:hover{
 			background-color: #39C7B9;

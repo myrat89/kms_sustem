@@ -10,6 +10,7 @@
 </head>
 <body>
 	<div class="heder_box_info">
+		<a href="index.php" title="Система управления сайтом"><div class="logo_svg_cms"></div></a>
 		<a href="/Users_prects/index.php" class="href_User_proect">Перейти на сайт </a>
 		<a href="#" class="href_User_proect">Добавть текст </a>
 		<a href="#" class="href_User_proect">Добавть Изображение </a>
