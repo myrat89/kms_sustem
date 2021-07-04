@@ -7,6 +7,10 @@
 
 			$filname = basename(__FILE__, ".php");
 			$read = $conn->query("SELECT * FROM `$filname`");
+			
+			echo "<div class=your_class_div>";
+			echo "<ul class=ul_your_class>";
+
 			foreach ($read as $key => $value) {
 				
 				$name = $value["name_links"];
@@ -14,11 +18,18 @@
 				$classn = $value["class_links"];
 				$id_links = $value["id_links"];
 				
-				// сдесь ваша html разметка страницы
+						// сдесь ваша html разметка страницы пропешите сдесь так же свои классы и id тегам за тем 
+						// подгоняйте ваши стили
 
-				echo "<a href=$namehref class=$classn id=id_links>$name</a>";
-				
-			}
+				echo "
+						<li class=your_li_class><a href=$namehref class=$classn id=id_links>$name</a></li>
+
+
+						";
+						
+					}
+			echo "</ul>";		
+			echo "</div>";		
 
 		?>
 

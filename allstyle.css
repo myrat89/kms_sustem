@@ -1,3 +1,14 @@
+	/*@font-face {
+font-family: "montserrat"; 
+src: url("/fonts/"); 
+src: url("/fonts/") format("embedded-opentype"),
+url("/fonts/") format("woff"), 
+url("/fonts/") format("truetype"); 
+font-style: normal; 
+font-weight: normal; 
+}	*/
+
+
 		body{
 			margin: 0;
 
@@ -92,7 +103,6 @@
 		.box_div_create_menu{
 			width: 361px;
 			height: 400px;
-			border:1px solid #000;
 			position: relative;
 			top:10px; left: 66px;
 			display: inline-block;
@@ -101,6 +111,10 @@
 			margin-top: 5px;
 			box-sizing: border-box;
 			overflow: auto;
+			overflow-x: hidden;
+			background-color: #353535;
+			box-shadow: 1px 1px 10px #444;
+			background: linear-gradient(#353535, #ff5);
 
 		}
 		.box_div_create_menu >p {
@@ -170,15 +184,17 @@
 .box_admin_links{
 	width: 320px;
 	height: 270px;
-	background-color: violet;
+	background-color: yellow;
 	position: relative;
 	left: 50%;
 	margin-left: -160px;
 	margin-top: 7px;
+	margin-bottom: 12px;
 	overflow: hidden;
 	box-shadow: 1px 1px 3px #000;
 	transition: height 0.7s;
 	border-radius: 20px;
+
 }
 .inp_ad{
 	display: block;
@@ -237,17 +253,44 @@
 .delet_class_submit{
 	position: relative;
 	left: 100px;
-	width: 25px;
-	height: 25px;
+	width: 20px;
+	height: 20px;
 	top: 8px;
 	background-image: url(images/free-icon-delete-395848.svg);
 	background-size: 100% 100%;
 	background-color: turquoise;
 	border: none;
 	cursor: pointer;
+	border-radius: 50px;
+	transition: box-shadow 0.5s;
 }
+.delet_class_submit:hover{
+	box-shadow: 1px 1px 5px #222, -1px -1px 5px #222;
+}
+
 .select_menu{
-	outline: none;
-	width: 150px;
-	height: 30px;
+   outline: none;
+   background: transparent;
+   width: 258px;
+   padding: 5px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+   height: 34px;
+   background-color: turquoise;
+   cursor: pointer;
+}
+.smal_text{
+	margin: 0;
+}
+.inp_delet_links{
+	position: relative;
+	top: -43px; left: 150px;
+	cursor: pointer;
+	border: none;
+	background: transparent;
+	z-index: 3;
+}
+.inp_delet_links:hover{
+	text-decoration: underline;
+	color: blue;
 }

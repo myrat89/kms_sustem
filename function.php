@@ -10,7 +10,6 @@ if (isset($_POST['add_sumbit'])) {
 	$links_id = $_POST['name_id'];
 	$links_select_menu = $_POST['name_value_select'];
 
-
 	if ($links_class === "") {
 		$links_class = "mk-class";
 	}
@@ -22,17 +21,17 @@ if (isset($_POST['add_sumbit'])) {
 	if($conn->query($sql)){
     echo "Таблица". $menu_name. "успешно создана";
 } else{
-    echo "Ошибка: " . $conn->error;
+
 }
 
 	
 	$table = "INSERT INTO `$menu_name`(`name_links`, `href_links`, `class_links`, `id_links`) VALUES ('$links_name', '$links_href', '$links_class', '$links_id')";
 	if (mysqli_query($conn, $table)) { // проверяем все ли правильно добавилось
 
-						} else {
-						      echo "Error: " . $table . "<br>" . mysqli_error($conn);
+	} else {
+	    echo "Error: " . $table . "<br>" . mysqli_error($conn);
 	
-					}
+	}
 
 
 
@@ -47,6 +46,10 @@ if (isset($_POST['add_sumbit'])) {
 
 			$filname = basename(__FILE__, ".php");
 			$read = $conn->query("SELECT * FROM `$filname`");
+			
+			echo "<div class=your_class_div>";
+			echo "<ul class=ul_your_class>";
+
 			foreach ($read as $key => $value) {
 				
 				$name = $value["name_links"];
@@ -54,11 +57,18 @@ if (isset($_POST['add_sumbit'])) {
 				$classn = $value["class_links"];
 				$id_links = $value["id_links"];
 				
-				// сдесь ваша html разметка страницы
+						// сдесь ваша html разметка страницы пропешите сдесь так же свои классы и id тегам за тем 
+						// подгоняйте ваши стили
 
-				echo "<a href=$namehref class=$classn id=id_links>$name</a>";
-				
-			}
+				echo "
+						<li class=your_li_class><a href=$namehref class=$classn id=id_links>$name</a></li>
+
+
+						";
+						
+					}
+			echo "</ul>";		
+			echo "</div>";		
 
 		?>
 
@@ -99,6 +109,7 @@ if (isset($_POST['add_sumbit'])) {
 				<div class=box_admin_links style=height:30px;>					
 				<p class=name_te_ad_links>$name_ad</p>
 					<form action=config_file.php method=post id=form_$fil_name_admin>
+						<input type=submit name=sub_delete_links value=Удалить class=inp_delet_links>
 						<input type=hidden name=name_ad_hidden_id value=$id_ad>
 						<input type=hidden name=name_ad_hidden_menu value=$fil_name_admin>
 						<p class=text_info>Имя сылки</p>

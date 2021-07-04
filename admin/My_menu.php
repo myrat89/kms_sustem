@@ -30,6 +30,7 @@
 				<div class=box_admin_links style=height:30px;>					
 				<p class=name_te_ad_links>$name_ad</p>
 					<form action=config_file.php method=post id=form_$fil_name_admin>
+						<input type=submit name=sub_delete_links value=Удалить class=inp_delet_links>
 						<input type=hidden name=name_ad_hidden_id value=$id_ad>
 						<input type=hidden name=name_ad_hidden_menu value=$fil_name_admin>
 						<p class=text_info>Имя сылки</p>

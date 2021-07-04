@@ -3,13 +3,16 @@
 <html lang="ru">
 <head>
 	<meta charset="utf-8">
-	<link href='allstyle.css' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href="/fonts/montserrat.css">
+	<link href='allstyle.css' rel='stylesheet' >
 	<title>Система управления сайтом</title>
 	
 </head>
 <body>
 	<div class="heder_box_info">
 		<a href="/Users_prects/index.php" class="href_User_proect">Перейти на сайт </a>
+		<a href="#" class="href_User_proect">Добавть текст </a>
+		<a href="#" class="href_User_proect">Добавть Изображение </a>
 	</div>
 		<div class="wrappers">
 			<div class="box_control_panel">
