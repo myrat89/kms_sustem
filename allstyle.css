@@ -47,6 +47,9 @@
 			position: relative;
 			left: 67px;
 		}
+		textarea, input {
+			outline: none;
+		}
 		.value_add{
 			height: 23px;
 			width: 280px;
@@ -291,4 +294,37 @@
 .inp_delet_links:hover{
 	text-decoration: underline;
 	color: blue;
+}
+/*========================================= add text ===============================*/
+
+.home_text_add{
+	display: block;
+	width: 338px;
+	height: 34px;
+	position: relative;
+	left: -60px;
+}
+.textarea_add{
+	margin-top: 16px;
+	position: relative;
+	left: -60px;
+	width: 338px;
+	height: 113px;
+}
+.small_text_add{
+	margin: 0;
+	position: relative;
+	left: -60px;
+}
+#text-add{
+	top: 15px;
+}
+.submit_add_text{
+	position: relative;
+	left: -60px;
+	padding: 10px 20px;
+	border: none;
+	background-color: green;
+	color: #fff;
+	cursor: pointer;
 }

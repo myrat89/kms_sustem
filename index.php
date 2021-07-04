@@ -12,8 +12,7 @@
 	<div class="heder_box_info">
 		<a href="index.php" title="Система управления сайтом"><div class="logo_svg_cms"></div></a>
 		<a href="/Users_prects/index.php" class="href_User_proect">Перейти на сайт </a>
-		<a href="#" class="href_User_proect">Добавть текст </a>
-		<a href="#" class="href_User_proect">Добавть Изображение </a>
+		
 	</div>
 		<div class="wrappers">
 			<div class="box_control_panel">
@@ -42,6 +41,18 @@
 					</div>
 				</form>
 
+			</div>
+			<div class="box_control_panel">
+				<p id="panel_text">Панель добовления текста на сайт</p>	
+					<form action="" method="post" id="form_add_text">
+						<small class="small_text_add">Название текстового блока<span style="color:red;">*</span></small>
+						<input type="text" name="_name_text_home" class="home_text_add" required>
+						<small class="small_text_add">Заголовак текста</small>
+						<input type="text" name="text_home" class="home_text_add">
+						<small class="small_text_add" id="text-add">Текст</small>
+						<textarea name="textarea_add_text" class="textarea_add" >напечатайте текст...</textarea>
+						<input type="submit" name="submit_add_text" value="Добавить текст" class="submit_add_text">
+					</form>
 			</div>
 				<?php 
 				$folder = __DIR__.'/admin';

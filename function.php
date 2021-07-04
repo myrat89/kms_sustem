@@ -142,7 +142,7 @@ $conn->close();
 	echo '<meta http-equiv = "Refresh" content = "0; URL = index.php">';
 	exit();
 }
-
+// add text panel two 
 
 
 
