@@ -12,6 +12,8 @@
 	<div class="heder_box_info">
 		<a href="index.php" title="Система управления сайтом"><div class="logo_svg_cms"></div></a>
 		<a href="/Users_prects/index.php" class="href_User_proect">Перейти на сайт </a>
+		<button class="button_add_box_menu">Добавить меню сылок</button>
+		<button class="button_add_box_menu">Добавить текстовое меню</button>
 		
 	</div>
 		<div class="wrappers">
@@ -26,7 +28,6 @@
 							include 'files.php';
 							
 						}
-						
 
 
 					?>
@@ -44,13 +45,13 @@
 			</div>
 			<div class="box_control_panel">
 				<p id="panel_text">Панель добовления текста на сайт</p>	
-					<form action="" method="post" id="form_add_text">
+					<form action="function.php" method="post" id="form_add_text">
 						<small class="small_text_add">Название текстового блока<span style="color:red;">*</span></small>
 						<input type="text" name="_name_text_home" class="home_text_add" required>
 						<small class="small_text_add">Заголовак текста</small>
 						<input type="text" name="text_home" class="home_text_add">
 						<small class="small_text_add" id="text-add">Текст</small>
-						<textarea name="textarea_add_text" class="textarea_add" >напечатайте текст...</textarea>
+						<textarea name="textarea_add_text" class="textarea_add" >напечатайте свой текст...</textarea>
 						<input type="submit" name="submit_add_text" value="Добавить текст" class="submit_add_text">
 					</form>
 			</div>
@@ -59,12 +60,18 @@
 				$open_dir = scandir($folder);
 				foreach ($open_dir as $ap_dir) {
 					 if (!in_array($ap_dir, array(".", ".."))) {      				 	
-      				 	include ("admin/". $ap_dir); // подключаем все имеющися файлы в директории
+      				 		include ("admin/". $ap_dir); // подключаем все имеющися файлы в директории
 
   					  }
   					  
 				}
-
+				$files_text = __DIR__. '/admin_text';
+				$scan_fil_texst = scandir($files_text);
+					foreach ($scan_fil_texst as $file_text) {
+						if (!in_array($file_text, array(".", ".."))) {
+							include ("admin_text/". $file_text); // подключаем все имеющися файлы в директории	
+						}
+					}
 
 				?>
 					

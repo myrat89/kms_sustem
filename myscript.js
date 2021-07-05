@@ -1,6 +1,17 @@
 
 //всплывающие окна
 
+const text_home	= document.getElementsByClassName("h4_add_text");
+	for (let i = 0; i < text_home.length; i++) {
+	 	text_home[i].addEventListener("click", function() {
+	 		if(this.parentNode.parentNode.style.height === "33px") {
+	 			this.parentNode.parentNode.style.height = "317px";
+	 		}
+	 		else {
+	 			this.parentNode.parentNode.style.height = "33px";
+	 		}
+	 	});
+	 } 
 
 const ad_text = document.getElementsByClassName("name_te_ad_links");
 const box_ad = document.getElementsByClassName("box_admin_links")[0];
@@ -55,3 +66,38 @@ const box_ad = document.getElementsByClassName("box_admin_links")[0];
 
 		}
 	});
+
+// button display none = block
+
+	const box_panel = document.getElementsByClassName("box_control_panel"); 
+	const button_add_box_menu = document.getElementsByClassName("button_add_box_menu");
+	for (let i = 0; i < button_add_box_menu.length; i++) {
+		
+		button_add_box_menu[i].addEventListener("click", function() {
+			
+			if (this.innerHTML === "Добавить текстовое меню") {
+				box_panel[1].classList.add('_textclass');
+
+			}else {
+				box_panel[1].classList.remove("_textclass");
+
+			}
+
+			if (this.innerHTML === "Добавить меню сылок") {
+				box_panel[0].classList.add('_textclass');
+			
+			}else {
+				box_panel[0].classList.remove("_textclass");
+			}
+
+
+	});
+
+	
+// document.body.classList.add('article');
+// el.classList.remove("bar");
+
+
+	}
+	
+

@@ -47,8 +47,49 @@ if (isset($_POST['delet_mune'])) {
 
 	}
 
+/*========================================forms text add==================================*/	
+//delete text menu 
+
+if (isset($_POST['delet_mune_text'])) {
+
+	$name_menu_text = htmlspecialchars($_POST['hidden_name_menu_text']);
+	$delete_file_text = __DIR__. '/admin_text/'. $name_menu_text. '.php'; // путь к файлу
+	$delet_file_users_text = __DIR__. '/tamplete_text/'. $name_menu_text. '.php'; // путь к файлу
+
+	$filenametext = basename($delete_file_text, ".php"); // обрезаем все кроме названия файла
 	
 
+	$delet_table_text = $conn->query("DROP TABLE $filenametext;"); // удаляем таблицу
+	
+	if (file_exists($delete_file_text) and file_exists($delet_file_users_text)) { // проверяем существует ли файл
+		unlink($delete_file_text); // удаляем сам файл Admin
+		unlink($delet_file_users_text); // удаляем сам файл Users
+
+	}
+		echo '<meta http-equiv = "Refresh" content = "0; URL = index.php">';
+		exit();
+
+
+}
+
+if (isset($_POST['sub_config_text'])) {
+
+	$Names = htmlspecialchars($_POST['hidden_tabl']);
+	$ids_text = htmlspecialchars($_POST['hidden_add_id']);
+	$name_box_text = htmlspecialchars($_POST['hidden_add_boxmenu']);
+	$home_text = htmlspecialchars($_POST['home_text_add']);
+	$text_messages = htmlspecialchars($_POST['messages_text_add']);
+	
+	if ($home_text === "") {
+		$home_text = $name_box_text;
+	}
+
+	$urdate_text = $conn->query("UPDATE `$Names` SET `text_menu` = '$home_text', `textarea_menu` = '$text_messages'  WHERE id = $ids_text");
+
+
+	echo '<meta http-equiv = "Refresh" content = "0; URL = index.php">';
+	exit();
+}
 
 
 

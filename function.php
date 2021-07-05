@@ -144,6 +144,106 @@ $conn->close();
 }
 // add text panel two 
 
+if (isset($_POST['submit_add_text'])) {
+	$box_name_menu = htmlspecialchars($_POST['_name_text_home']);
+	$box_name_text = htmlspecialchars($_POST['text_home']);
+	$box_name_textarea = htmlspecialchars($_POST['textarea_add_text']);
+		if ($box_name_text === "") {
+			$box_name_text = "вы оставили поле пустым тут должен быть ваш текст";
+		}
+		if ($box_name_textarea === "напечатайте свой текст...") {
+			$box_name_textarea = "Ваш напечатанные текст пустой";
+		}
+
+	$sql_text = "CREATE TABLE $box_name_menu (id INTEGER AUTO_INCREMENT PRIMARY KEY, text_menu VARCHAR(100), textarea_menu TEXT )";
+		if($conn->query($sql_text)){
+
+	} else{
+		echo "ошибка". "<br>";
+	}
+
+	$table_text = "INSERT INTO `$box_name_menu`(`text_menu`, `textarea_menu`) VALUES ('$box_name_text', '$box_name_textarea')";
+	
+	if (mysqli_query($conn, $table_text)) { // проверяем все ли правильно добавилось
+		
+	
+	} else {
+	    echo "Error: " . $table_text . "<br>" . mysqli_error($conn);
+	
+	}
+
+	$files_links_text = fopen('tamplete_text/'. $box_name_menu.'.php', 'w+');
+	fwrite($files_links_text, '
+	<link href="style_links.css" rel="stylesheet">	<!-- если у вас в верстке свои стили то просто удалите эту сторку -->
+		<?php 
+		include "../connectBasa.php"; // подключамся к базе
+			$fil_name_admin_text = basename(__FILE__, ".php");
+			$read_fil_admin_text = $conn->query("SELECT * FROM `$fil_name_admin_text`");
+				
+				foreach($read_fil_admin_text as $select_text) {
+					$home_text = $select_text["text_menu"];
+					$home_messages = $select_text["textarea_menu"];
+
+							// сдесь вы можете менять теги и классы и id на свои
+					echo "
+						<h1 class=class id=id>$home_text</h1>
+						<p class=class-p id=id-p>$home_messages</p>
+					";
+				}
+
+		?>	
+
+
+
+		');
+
+	fclose($files_links_text);
+
+
+	$fil_admin_text = fopen('admin_text/'. $box_name_menu.'.php', 'w+');
+	fwrite($fil_admin_text, '
+
+		<?php 
+			$admin_text_name = basename(__FILE__, ".php" );
+			$admin_read_text = $conn->query("SELECT * FROM `$admin_text_name`");
+		echo "<div class=box_div_create_menu>"; 	
+
+		echo "
+		<form action=config_file.php method=post id=form_delete>
+		<input type=hidden name=hidden_name_menu_text value=$admin_text_name>
+		<p class=text_mune_admin>$admin_text_name<input type=submit name=delet_mune_text class=delet_class_submit title=Удалить value= ></p></form>";
+
+				foreach($admin_read_text as $select_text_admin) {
+					$id_text_admin = $select_text_admin["id"];
+					$name_text_admin = $select_text_admin["text_menu"];
+					$messages_text_admin = $select_text_admin["textarea_menu"];
+
+					echo "
+					<div class=wrap_text style=height:33px;>
+						<form action=config_file.php method=post id=form_text_congig>
+							<input type=hidden name=hidden_add_id value=$id_text_admin>
+							<input type=hidden name=hidden_tabl value=$admin_text_name>
+							<textarea name=hidden_add_boxmenu class=hidd>$name_text_admin</textarea>
+							<p class=h4_add_text name=add_text_h4>$name_text_admin</p>
+							<small class=smal_text>Изменить заголовок:</small>
+							<input type=text name=home_text_add class=add_text_congig>
+							<small class=smal_text>Изменить текст:</small>
+							<textarea name=messages_text_add class=add_messages_congig>$messages_text_admin</textarea>
+							<input type=submit name=sub_config_text value=Сохранить class=but_config_add_text>
+						</form>
+					</div>	
+
+					";
+
+				}
+
+
+		echo "</div>";		
+
+		?>
+
+		');
+	fclose($fil_admin_text);
 
 
 
@@ -151,7 +251,12 @@ $conn->close();
 
 
 
+$conn->close();	
 
+	echo '<meta http-equiv = "Refresh" content = "0; URL = index.php">';
+	exit();
+
+}
 
 
 
