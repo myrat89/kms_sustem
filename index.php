@@ -46,6 +46,18 @@
 			<div class="box_control_panel">
 				<p id="panel_text">Панель добовления текста на сайт</p>	
 					<form action="function.php" method="post" id="form_add_text">
+
+						<?php 
+							
+							$fails_text = __DIR__. '/admin_text';
+							$scan_text = scandir($fails_text); // массив
+							if (count($scan_text) > 2) {
+							
+							include 'files_text.php';
+							
+						}
+						?>
+
 						<small class="small_text_add">Название текстового блока<span style="color:red;">*</span></small>
 						<input type="text" name="_name_text_home" class="home_text_add" required>
 						<small class="small_text_add">Заголовак текста</small>

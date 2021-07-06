@@ -39,33 +39,53 @@ const box_ad = document.getElementsByClassName("box_admin_links")[0];
 	const input_disabled = document.createElement("input");
 	input_disabled.type = "hidden"; input_disabled.name = "name_menu";
 	input_disabled.className = "disabked_hidden";
-	const selects = document.getElementsByClassName("select_menu")[0];
+	//const input_in2 = document.createElement("input"); input_in2.type = "hidden"; input_in2.name = "_name_text_home";
+	const selects = document.getElementsByClassName("select_menu"); //#
 	const input_in = document.getElementsByClassName("in")[0];
-	if (selects) {
-		selects.addEventListener("change", function() {
+	const inp_home_text = document.getElementsByClassName("box_control_panel")[1]; 
+	for (var i = 0; i < selects.length; i++) {
+		
+		selects[i].addEventListener("change", function() {
+			if (selects) {
+				
+				if (this.value === "Добавть новое меню") {
+					input_in.disabled = "";
+					input_in.value = "";
+				}else {
+					input_in.value = this.value; // втовляем значение из select в input
+					input_in.disabled = "disabled";		
+					input_disabled.value = this.value;
+					document.getElementById("form_data2").prepend(input_disabled);
 
-			input_in.value = this.value; // втовляем значение из select в input
-			input_in.disabled = "disabled";		
-			input_disabled.value = this.value;
-			document.getElementById("form_data2").prepend(input_disabled);
+	
+				}
 
-			if (this.value === "Добавть новое меню") {
-				input_in.disabled = "";
-				input_in.value = "";
-			}
-		});
-	}
-	document.addEventListener("DOMContentLoaded", function() {
-		if (selects) {
-			input_in.value = selects.value; // встовляем при загрузке страницы
-			input_in.disabled = "disabled";
-			input_disabled.value = selects.value;
-			document.getElementById("form_data2").prepend(input_disabled);
+				if (inp_home_text.className === "box_control_panel _textclass") {
+					console.log(this.value);
+					if (this.value === "Добавть новое меню") {
+						inp_home_text.children[1].children[3].value = ""; // встовляем значение в input
+						inp_home_text.children[1].children[3].disabled = "";
+					
+					} 
+					else {
+						inp_home_text.children[1].children[3].value = this.value; // встовляем значение в input
+						inp_home_text.children[1].children[3].disabled = "disabled";			
+						input_disabled.name = "_name_text_home";	
+						input_disabled.value = this.value;	
+						document.getElementById("form_add_text").prepend(input_disabled);
+					}
+
+				}
 			
+			
+			}
 
 
-		}
-	});
+		});
+	
+
+	}
+
 
 // button display none = block
 
@@ -78,7 +98,8 @@ const box_ad = document.getElementsByClassName("box_admin_links")[0];
 			if (this.innerHTML === "Добавить текстовое меню") {
 				box_panel[1].classList.add('_textclass');
 
-			}else {
+			}
+			else {
 				box_panel[1].classList.remove("_textclass");
 
 			}

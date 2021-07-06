@@ -100,14 +100,14 @@
 		}
 		._textclass{
 			width:361px;
-			min-height: 400px;
+			height: 400px;
 			border:1px solid #000;
 			position: relative;
 			top:10px; left: 66px;
 			display: inline-block;
 			vertical-align: top;
 			margin-top: 5px;
-			overflow: auto;
+			overflow: hidden;
 		}
 		.in{
 			display: block;
@@ -307,6 +307,11 @@
    height: 34px;
    background-color: turquoise;
    cursor: pointer;
+   display: block;
+}
+#id_select_menu{
+	position: relative;
+	top: -31px;
 }
 .smal_text{
 	margin: 0;
@@ -331,6 +336,7 @@
 	height: 34px;
 	position: relative;
 	left: -60px;
+	top: -27px;
 }
 .textarea_add{
 	margin-top: 16px;
@@ -338,14 +344,16 @@
 	left: -60px;
 	width: 338px;
 	height: 113px;
+	top: -33px;
 }
 .small_text_add{
 	margin: 0;
 	position: relative;
 	left: -60px;
+	top: -26px;
 }
 #text-add{
-	top: 15px;
+	top: -17px;
 }
 .submit_add_text{
 	position: relative;
@@ -356,6 +364,7 @@
 	color: #fff;
 	cursor: pointer;
 	box-shadow: 1px 1px 2px #333;
+	top: -29px;
 }
 .wrap_text{
 	position: relative;
@@ -372,10 +381,17 @@
 }
 .smal_text{
 	position: relative;
-	left: -59px;
 	margin: 0;
 	color: unset;
-	top: 3px;
+	left: -59px;
+	top: 5px;
+}
+.smal_text_hed{
+	position: relative;
+}
+.smal_text_heder{
+	position: relative;
+	top: -31px;
 }
 .h4_add_text{
 	margin: 0;
