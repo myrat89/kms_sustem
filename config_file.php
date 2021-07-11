@@ -12,7 +12,7 @@ if (isset($_POST['sub_ad_save'])) {
 	
 	$urdate_table = $conn->query("UPDATE `$id_name_table` SET `name_links` = '$name_links', `href_links` = '$name_href_links', `class_links` = '$name_links_class', `id_links` = '$name_links_id' WHERE id = $id_link");
 
-	echo '<meta http-equiv = "Refresh" content = "0; URL = index.php">';
+	echo '<meta http-equiv = "Refresh" content = "0; URL = admin-panel.php">';
 	exit();
 
 }
@@ -32,7 +32,7 @@ if (isset($_POST['delet_mune'])) {
 
 	}
 	
-	echo '<meta http-equiv = "Refresh" content = "0; URL = index.php">';
+	echo '<meta http-equiv = "Refresh" content = "0; URL = admin-panel.php">';
 	exit();
 
 	//DROP TABLE Clients; удаление таблиц
@@ -42,7 +42,7 @@ if (isset($_POST['delet_mune'])) {
 	if (isset($_POST['sub_delete_links'])) {
 		$delete_link = $conn->query("DELETE FROM `$id_name_table` WHERE id = $id_link");
 		
-		echo '<meta http-equiv = "Refresh" content = "0; URL = index.php">';
+		echo '<meta http-equiv = "Refresh" content = "0; URL = admin-panel.php">';
 		exit();
 
 	}
@@ -66,7 +66,7 @@ if (isset($_POST['delet_mune_text'])) {
 		unlink($delet_file_users_text); // удаляем сам файл Users
 
 	}
-		echo '<meta http-equiv = "Refresh" content = "0; URL = index.php">';
+		echo '<meta http-equiv = "Refresh" content = "0; URL = admin-panel.php">';
 		exit();
 
 
@@ -87,10 +87,26 @@ if (isset($_POST['sub_config_text'])) {
 	$urdate_text = $conn->query("UPDATE `$Names` SET `text_menu` = '$home_text', `textarea_menu` = '$text_messages'  WHERE id = $ids_text");
 
 
-	echo '<meta http-equiv = "Refresh" content = "0; URL = index.php">';
+	echo '<meta http-equiv = "Refresh" content = "0; URL = admin-panel.php">';
 	exit();
 }
 
+// валидатция userAdmin 
+
+	if (isset($_POST['Log_in'])) {
+
+		$Usrs_admin_name = htmlspecialchars($_POST['username_ad']);
+		$Usrs_admin_Password = htmlspecialchars($_POST['Password_ad']);
+
+		$posts = $conn->query("SELECT * FROM `users_admin` WHERE `Login` = '$Usrs_admin_name' AND `Password` = '$Usrs_admin_Password' ");
+		if (mysqli_num_rows($posts) > 0) {
+			echo '<meta http-equiv = "Refresh" content = "0; URL = admin-panel.php">';
+			exit();
+	
+		}else {
+			echo "<small class='small_error'>Непрваильный логин или пароль</small>";
+		}
+	}
 
 
 

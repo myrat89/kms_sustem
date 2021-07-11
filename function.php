@@ -139,7 +139,7 @@ if (isset($_POST['add_sumbit'])) {
 
 $conn->close();	
 
-	echo '<meta http-equiv = "Refresh" content = "0; URL = index.php">';
+	echo '<meta http-equiv = "Refresh" content = "0; URL = admin-panel.php">';
 	exit();
 }
 // add text panel two 
@@ -253,7 +253,7 @@ if (isset($_POST['submit_add_text'])) {
 
 $conn->close();	
 
-	echo '<meta http-equiv = "Refresh" content = "0; URL = index.php">';
+	echo '<meta http-equiv = "Refresh" content = "0; URL = admin-panel.php">';
 	exit();
 
 }

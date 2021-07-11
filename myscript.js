@@ -61,7 +61,6 @@ const box_ad = document.getElementsByClassName("box_admin_links")[0];
 				}
 
 				if (inp_home_text.className === "box_control_panel _textclass") {
-					console.log(this.value);
 					if (this.value === "Добавть новое меню") {
 						inp_home_text.children[1].children[3].value = ""; // встовляем значение в input
 						inp_home_text.children[1].children[3].disabled = "";
@@ -114,11 +113,9 @@ const box_ad = document.getElementsByClassName("box_admin_links")[0];
 
 	});
 
-	
+	}
+
+
+
 // document.body.classList.add('article');
 // el.classList.remove("bar");
-
-
-	}
-	
-
