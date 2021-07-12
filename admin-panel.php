@@ -32,7 +32,7 @@
 
 
 					?>
-					<input type="text" name="name_menu" placeholder="Название меню на Англиском " class="in" required>
+					<input type="text" name="name_menu" placeholder="Название на Англиском и без пробелов" class="in" required>
 
 					<div class="box_form_display">
 						<input type="text" name="name_links" placeholder="Имя сылки" class="in" required>
@@ -60,7 +60,7 @@
 						?>
 
 						<small class="small_text_add">Название текстового блока<span style="color:red;">*</span></small>
-						<input type="text" name="_name_text_home" class="home_text_add" required>
+						<input type="text" name="_name_text_home" class="home_text_add" required placeholder="Название без пробелов и на Англиском">
 						<small class="small_text_add">Заголовак текста</small>
 						<input type="text" name="text_home" class="home_text_add">
 						<small class="small_text_add" id="text-add">Текст</small>

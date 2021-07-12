@@ -39,18 +39,22 @@ const box_ad = document.getElementsByClassName("box_admin_links")[0];
 	const input_disabled = document.createElement("input");
 	input_disabled.type = "hidden"; input_disabled.name = "name_menu";
 	input_disabled.className = "disabked_hidden";
-	//const input_in2 = document.createElement("input"); input_in2.type = "hidden"; input_in2.name = "_name_text_home";
 	const selects = document.getElementsByClassName("select_menu"); //#
 	const input_in = document.getElementsByClassName("in")[0];
-	const inp_home_text = document.getElementsByClassName("box_control_panel")[1]; 
-	for (var i = 0; i < selects.length; i++) {
+	const input_in2 = document.getElementsByClassName("home_text_add")[0];
+ 	const inp_home_text = document.getElementsByClassName("box_control_panel")[1]; 
+ 	const select_menu = document.getElementsByClassName("select_menu"); 
+	for (let i = 0; i < selects.length; i++) {
 		
 		selects[i].addEventListener("change", function() {
 			if (selects) {
 				
-				if (this.value === "Добавть новое меню") {
+				if (this.value === "Добавть сылочное меню") {
 					input_in.disabled = "";
 					input_in.value = "";
+						input_in2.disabled = "";
+						input_in2.value = "";
+						
 				}else {
 					input_in.value = this.value; // втовляем значение из select в input
 					input_in.disabled = "disabled";		
@@ -61,7 +65,7 @@ const box_ad = document.getElementsByClassName("box_admin_links")[0];
 				}
 
 				if (inp_home_text.className === "box_control_panel _textclass") {
-					if (this.value === "Добавть новое меню") {
+					if (this.value === "Добавть текстовое меню") {
 						inp_home_text.children[1].children[3].value = ""; // встовляем значение в input
 						inp_home_text.children[1].children[3].disabled = "";
 					
@@ -96,6 +100,13 @@ const box_ad = document.getElementsByClassName("box_admin_links")[0];
 			
 			if (this.innerHTML === "Добавить текстовое меню") {
 				box_panel[1].classList.add('_textclass');
+				input_in2.value = "";
+				input_in2.disabled = "";
+					if(select_menu[1].value !== "Добавть текстовое меню") {
+						input_in2.value = select_menu[1].value; 
+						input_in2.disabled = "disabled";
+					}
+
 
 			}
 			else {
@@ -105,8 +116,18 @@ const box_ad = document.getElementsByClassName("box_admin_links")[0];
 
 			if (this.innerHTML === "Добавить меню сылок") {
 				box_panel[0].classList.add('_textclass');
+				input_in.disabled = "";
+				input_in.value = "";
+				
+					if(select_menu[0].value !== "Добавть сылочное меню") {
+						input_in.value = select_menu[0].value; 
+						input_in.disabled = "disabled";
+					}
+
 			
-			}else {
+			}
+
+			else {
 				box_panel[0].classList.remove("_textclass");
 			}
 
@@ -114,8 +135,16 @@ const box_ad = document.getElementsByClassName("box_admin_links")[0];
 	});
 
 	}
+	
+	//удаление побелов обьединение строк
 
-
+	input_in2.addEventListener("blur", function() {
+		if (this.value !== "") {
+			let arr = this.value.split(' ');
+			let str = arr.join(""); 
+			this.value = str;
+		}
+	});
 
 // document.body.classList.add('article');
 // el.classList.remove("bar");
