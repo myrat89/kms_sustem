@@ -1,7 +1,6 @@
 
 		body{
 			margin: 0;
-
 		}
 		.logo_svg_cms{
 			width: 60px;
@@ -143,8 +142,8 @@
 			overflow-x: hidden;
 			background-color: #353535;
 			box-shadow: 1px 1px 10px #444;
-			background: linear-gradient(#353535, #ff5);
-
+			background: linear-gradient(#FC096D, #F90867);
+			border-radius: 7px;
 		}
 		.box_div_create_menu >p {
 			text-align: center;
@@ -253,7 +252,7 @@
 	cursor: pointer;
 	transition: all 0.5s;
 	top: -30px;
-	left: -66px;
+	left: -67px;
 	text-align: center;
 	padding: 0px 0px 12px 0px;
 	background-color: turquoise;
@@ -373,7 +372,7 @@
 	height: 317px;
 	background-color: yellow;
 	border-radius: 20px;
-	left: 2px;
+	left: 7px;
 	overflow: hidden;
 	margin-top: 5px;
 	transition: height 0.7s;

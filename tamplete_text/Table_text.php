@@ -9,11 +9,15 @@
 					$home_text = $select_text["text_menu"];
 					$home_messages = $select_text["textarea_menu"];
 
-							// сдесь вы можете менять теги и классы и id на свои
-					echo "
-						<h1 class=class id=id>$home_text</h1>
-						<p class=class-p id=id-p>$home_messages</p>
-					";
+				
+					if ($home_text !== "вы оставили поле пустым тут должен быть ваш текст" && $home_text !== "") {
+						echo "<h1 class=class id=id>$home_text</h1>";
+					}
+					
+					if ($home_messages !== "Ваш напечатанные текст пустой" && $home_messages !== "") {
+						echo "<p class=class-p id=id-p>$home_messages</p>";
+					}
+							
 				}
 
 		?>	

@@ -80,9 +80,6 @@ if (isset($_POST['sub_config_text'])) {
 	$home_text = htmlspecialchars($_POST['home_text_add']);
 	$text_messages = htmlspecialchars($_POST['messages_text_add']);
 	
-	if ($home_text === "") {
-		$home_text = $name_box_text;
-	}
 
 	$urdate_text = $conn->query("UPDATE `$Names` SET `text_menu` = '$home_text', `textarea_menu` = '$text_messages'  WHERE id = $ids_text");
 

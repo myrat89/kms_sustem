@@ -3,7 +3,7 @@
 $folder = __DIR__.'/admin';
 				$open_dir = scandir($folder);
 				echo "<small class=smal_text_hed>Выберите меню или добавте новое</small>";
-				echo "<select class=select_menu name=name_value_select>";
+				echo "<select class=select_menu name=name_value_select id=disply_bor>";
 				echo "<option>Добавть сылочное меню</option>";							
 				foreach ($open_dir as $ap_dir) {
 					 if (!in_array($ap_dir, array(".", ".."))) {  
